@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import org.nfunk.jep.JEP;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,8 +15,6 @@ public class CalcController implements Initializable {
 
     private StringBuffer number = new StringBuffer();
 
-    private JEP jep = new JEP();
-    private double result = 0d;
     @FXML
     private GridPane rootPane;
     @FXML
