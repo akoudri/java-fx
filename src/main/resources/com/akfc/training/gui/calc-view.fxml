@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.Double?>
+<?import java.net.URL?>
+<GridPane xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.akfc.training.gui.CalcController" fx:id="rootPane">
+   <stylesheets>
+      <URL value="@calc.css" />
+   </stylesheets>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <fx:define>
+      <Double fx:id="width" fx:value="80.0"/>
+      <Double fx:id="height" fx:value="80.0"/>
+   </fx:define>
+   <children>
+      <MenuBar prefHeight="$height" GridPane.columnSpan="4" minWidth="310">
+         <Menu text="File">
+            <MenuItem text="About"/>
+            <MenuItem text="Exit" onAction="#onExitEvent"/>
+         </Menu>
+      </MenuBar>
+      <Label fx:id="display" prefHeight="$height" GridPane.rowIndex="1" GridPane.columnSpan="4" styleClass="disp" minWidth="310"/>
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="1" GridPane.rowIndex="2" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="+" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="(" GridPane.columnIndex="5" GridPane.rowIndex="2" GridPane.rowSpan="2"/>
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="4" GridPane.rowIndex="3" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="5" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="-" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="7" GridPane.rowIndex="4" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="8" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="9" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="*" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text=")" GridPane.columnIndex="5" GridPane.rowIndex="4" GridPane.rowSpan="2"/>
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="0" GridPane.rowIndex="5" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button onAction="#onOperationCall" prefHeight="$height" prefWidth="$width" text="=" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Button onAction="#onNumberClick" prefHeight="$height" prefWidth="$width" text="/" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+   </children>
+</GridPane>
