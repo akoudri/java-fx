@@ -14,10 +14,9 @@ import java.util.ResourceBundle;
 
 public class CalcController implements Initializable {
 
-    private StringBuffer number = new StringBuffer();
-
     private JEP jep = new JEP();
-    private double result = 0d;
+    private boolean resultDisplayed = false;
+
     @FXML
     private GridPane rootPane;
     @FXML
@@ -25,29 +24,33 @@ public class CalcController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Calc launched");
+        // Configuration initiale de JEP
+        jep.addStandardFunctions();
+        jep.addStandardConstants();
     }
 
     @FXML
     protected void onNumberClick(ActionEvent event) {
         Button button = (Button) event.getSource();
-        number.append(button.getText());
-        display.setText(number.toString());
+        String btnText = button.getText();
+        //TODO: implements number click
     }
 
     @FXML
     protected void onOperationCall(ActionEvent event) {
-        String expression = number.toString();
+        //TODO: implements equals click
+    }
 
-        try {
-            jep.parseExpression(expression);
-            result = jep.getValue();
-            display.setText(String.valueOf(result));
-            number.setLength(0);
-        } catch (Exception e) {
-            display.setText("Error");
-            number.setLength(0);
-        }
+    @FXML
+    protected void onClearEvent(ActionEvent event) {
+        //TODO: clear expression
+    }
+
+    private String formatResult(double result) {
+        // Gestion de l'affichage des décimales
+        return Math.abs(result - (long) result) < 0.0000001
+                ? String.valueOf((long) result)
+                : String.valueOf(result);
     }
 
     @FXML
