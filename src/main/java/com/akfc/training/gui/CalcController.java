@@ -7,14 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import org.nfunk.jep.JEP;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CalcController implements Initializable {
 
-    private JEP jep = new JEP();
     private boolean resultDisplayed = false;
 
     @FXML
@@ -24,33 +22,57 @@ public class CalcController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Configuration initiale de JEP
-        jep.addStandardFunctions();
-        jep.addStandardConstants();
+        // Initialize display
+        display.setText("");
     }
 
     @FXML
     protected void onNumberClick(ActionEvent event) {
         Button button = (Button) event.getSource();
         String btnText = button.getText();
-        //TODO: implements number click
+        
+        //TODO
     }
 
     @FXML
     protected void onOperationCall(ActionEvent event) {
-        //TODO: implements equals click
+        String expression = display.getText();
+        
+        if (expression.isEmpty()) {
+            return;
+        }
+        
+        //TODO: use evaluator
     }
 
     @FXML
     protected void onClearEvent(ActionEvent event) {
-        //TODO: clear expression
+        display.setText("");
+        resultDisplayed = false;
     }
 
     private String formatResult(double result) {
-        // Gestion de l'affichage des décimales
         return Math.abs(result - (long) result) < 0.0000001
                 ? String.valueOf((long) result)
                 : String.valueOf(result);
+    }
+    
+    /**
+     * Helper method to check if a string represents a numeric value
+     */
+    private boolean isNumeric(String str) {
+        return str.matches("\\d");
+    }
+    
+    /**
+     * Helper method to check if the expression ends with an operator
+     */
+    private boolean endsWithOperator(String expression) {
+        if (expression.isEmpty()) {
+            return false;
+        }
+        char lastChar = expression.charAt(expression.length() - 1);
+        return lastChar == '+' || lastChar == '-' || lastChar == '*' || lastChar == '/' || lastChar == '(';
     }
 
     @FXML
