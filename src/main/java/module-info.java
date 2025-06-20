@@ -9,7 +9,6 @@ module com.akfc.training.gui {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
-    requires jep;
 
     opens com.akfc.training.gui to javafx.fxml;
     opens com.akfc.training.gui.examples to javafx.fxml;
