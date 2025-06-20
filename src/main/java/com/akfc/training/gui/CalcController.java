@@ -37,7 +37,17 @@ public class CalcController implements Initializable {
 
     @FXML
     protected void onOperationCall(ActionEvent event) {
-        //TODO: Implement this method
+        String expression = number.toString();
+
+        try {
+            jep.parseExpression(expression);
+            result = jep.getValue();
+            display.setText(String.valueOf(result));
+            number.setLength(0);
+        } catch (Exception e) {
+            display.setText("Error");
+            number.setLength(0);
+        }
     }
 
     @FXML
